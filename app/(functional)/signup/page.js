@@ -5,8 +5,9 @@ import { useState } from "react";
 
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
+import { Signup } from "@/lib/actions";
 
-export default function Signup() {
+export default function SignupPage() {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
 
@@ -19,7 +20,7 @@ export default function Signup() {
         <Typography className="mb-16 text-[18px] font-normal text-black">
           Enter your email and password to sign in
         </Typography>
-        <form action="#" className="mx-auto max-w-[24rem] text-left">
+        <form action={Signup} className="mx-auto max-w-[24rem] text-left">
           <div className="mb-6">
             <label htmlFor="username">
               <Typography
@@ -75,6 +76,7 @@ export default function Signup() {
             </label>
             <Input
               size="lg"
+              name="password"
               placeholder="********"
               labelProps={{
                 className: "hidden",
@@ -92,7 +94,13 @@ export default function Signup() {
               }
             />
           </div>
-          <Button color="gray" size="lg" className="mt-6" fullWidth>
+          <Button
+            color="gray"
+            size="lg"
+            className="mt-6"
+            fullWidth
+            type="submit"
+          >
             sign in
           </Button>
           <div className="!mt-4 flex justify-end">
@@ -106,30 +114,30 @@ export default function Signup() {
               Forgot password
             </Typography>
           </div>
-          <Button
-            variant="outlined"
-            size="lg"
-            className="mt-6 flex h-12 items-center justify-center gap-2"
-            fullWidth
-          >
-            <img
-              src={`https://www.material-tailwind.com/logos/logo-google.png`}
-              alt="google"
-              className="h-6 w-6"
-            />{" "}
-            sign up with google
-          </Button>
-          <Typography
-            variant="small"
-            color="gray"
-            className="!mt-4 text-center font-normal"
-          >
-            Already registered?{" "}
-            <Link href="/login" className="font-bold text-black">
-              Login here
-            </Link>
-          </Typography>
         </form>
+        <Button
+          variant="outlined"
+          size="lg"
+          className="mt-6 flex h-12 items-center justify-center gap-2"
+          fullWidth
+        >
+          <img
+            src={`https://www.material-tailwind.com/logos/logo-google.png`}
+            alt="google"
+            className="h-6 w-6"
+          />{" "}
+          sign up with google
+        </Button>
+        <Typography
+          variant="small"
+          color="gray"
+          className="!mt-4 text-center font-normal"
+        >
+          Already registered?{" "}
+          <Link href="/login" className="font-bold text-black">
+            Login here
+          </Link>
+        </Typography>
       </div>
     </section>
   );
