@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -10,9 +10,13 @@ import { Signup } from "@/lib/actions";
 export default function SignupPage() {
   const [passwordShown, setPasswordShown] = useState(false);
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
+  const [isClient, setIsClient] = useState(false);
 
-  return (
-    <section className="grid h-screen items-center bg-gradient-to-tl from-[#1F46C7] to-[#FD5E2A] p-8 text-center">
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  return isClient ? (
+    <section className="grid items-center text-center">
       <div className="mx-auto w-full max-w-md rounded-xl bg-white bg-opacity-25 py-12 backdrop-blur-lg lg:px-8">
         <Typography variant="h3" color="blue-gray" className="mb-2">
           Sign Up
@@ -140,5 +144,5 @@ export default function SignupPage() {
         </Typography>
       </div>
     </section>
-  );
+  ) : null;
 }
