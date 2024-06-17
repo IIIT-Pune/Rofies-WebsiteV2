@@ -1,7 +1,5 @@
+"use client";
+import React from "react";
 export default function HomePage() {
-  return (
-    <div>
-      <h1 className="text-orange-400">Home Page</h1>
-    </div>
-  );
+  return <h1 className="text-orange-500">Hello World</h1>;
 }
