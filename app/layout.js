@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <meta
           name="viewport"
@@ -19,9 +19,9 @@ export default function RootLayout({ children }) {
         ></meta>
       </head>
       <body className={inter.className}>
-        <div className="pt-4">
+        {/* <div className="pt-4">
           <MainHeader />
-        </div>
+        </div> */}
         {children}
       </body>
     </html>
