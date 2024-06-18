@@ -1,142 +1,67 @@
-"use client";
+import Image from "next/image";
 import Link from "next/link";
 
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-import { Typography, Input, Button } from "@material-tailwind/react";
-import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { Signup } from "@/lib/actions";
-export default function SignupForm() {
-  const [passwordShown, setPasswordShown] = useState(false);
-  const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
+export function SignupForm() {
   return (
-    <section className="grid items-center text-center">
-      <div className="mx-auto w-full max-w-md rounded-xl bg-white bg-opacity-25 py-4 lg:px-8">
-        <Typography variant="h3" color="blue-gray" className="mb-2">
-          Sign Up
-        </Typography>
-        <Typography className="mb-16 text-[18px] font-normal text-black">
-          Enter your email and password to sign in
-        </Typography>
-        <form action={Signup} className="mx-auto max-w-[24rem] text-left">
-          <div className="mb-6">
-            <label htmlFor="username">
-              <Typography
-                variant="small"
-                className="mb-2 block font-bold text-gray-900"
-              >
-                Your Name
-              </Typography>
-            </label>
-            <Input
-              id="username"
-              color="gray"
-              size="lg"
-              type="text"
-              name="username"
-              placeholder="John Doe"
-              className="focus:border-t-primary w-full border-t-blue-gray-200 placeholder:opacity-100"
-              labelProps={{
-                className: "hidden",
-              }}
-            />
+    <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
+      <div className="flex items-center justify-center py-12">
+        <div className="mx-auto grid w-[350px] gap-6">
+          <div className="grid gap-2 text-center">
+            <h1 className="text-3xl font-bold">Login</h1>
+            <p className="text-muted-foreground text-balance">
+              Enter your email below to login to your account
+            </p>
           </div>
-          <div className="mb-6">
-            <label htmlFor="email">
-              <Typography
-                variant="small"
-                className="mb-2 block font-bold text-gray-900"
-              >
-                Your Email
-              </Typography>
-            </label>
-            <Input
-              id="email"
-              color="gray"
-              size="lg"
-              type="email"
-              name="email"
-              placeholder="name@mail.com"
-              className="focus:border-t-primary w-full border-t-blue-gray-200 placeholder:opacity-100"
-              labelProps={{
-                className: "hidden",
-              }}
-            />
+          <div className="grid gap-4">
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="m@example.com"
+                required
+              />
+            </div>
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <Label htmlFor="password">Password</Label>
+                <Link
+                  href="/forgot-password"
+                  className="ml-auto inline-block text-sm underline"
+                >
+                  Forgot your password?
+                </Link>
+              </div>
+              <Input id="password" type="password" required />
+            </div>
+            <Button type="submit" className="w-full">
+              Login
+            </Button>
+            <Button variant="outline" className="w-full">
+              Login with Google
+            </Button>
           </div>
-          <div className="mb-6">
-            <label htmlFor="password">
-              <Typography
-                variant="small"
-                className="mb-2 block font-bold text-gray-900"
-              >
-                Password
-              </Typography>
-            </label>
-            <Input
-              size="lg"
-              name="password"
-              placeholder="********"
-              labelProps={{
-                className: "hidden",
-              }}
-              className="focus:border-t-primary w-full border-t-blue-gray-200 placeholder:opacity-100"
-              type={passwordShown ? "text" : "password"}
-              icon={
-                <i onClick={togglePasswordVisiblity}>
-                  {passwordShown ? (
-                    <EyeIcon className="h-5 w-5" />
-                  ) : (
-                    <EyeSlashIcon className="h-5 w-5" />
-                  )}
-                </i>
-              }
-            />
+          <div className="mt-4 text-center text-sm">
+            Don&apos;t have an account?{" "}
+            <Link href="#" className="underline">
+              Sign up
+            </Link>
           </div>
-          <Button
-            color="gray"
-            size="lg"
-            className="mt-6"
-            fullWidth
-            type="submit"
-          >
-            sign in
-          </Button>
-          <div className="!mt-4 flex justify-end">
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              variant="small"
-              className="font-medium"
-            >
-              Forgot password
-            </Typography>
-          </div>
-        </form>
-        <Button
-          variant="outlined"
-          size="lg"
-          className="mt-6 flex h-12 items-center justify-center gap-2"
-          fullWidth
-        >
-          <img
-            src={`https://www.material-tailwind.com/logos/logo-google.png`}
-            alt="google"
-            className="h-6 w-6"
-          />{" "}
-          sign up with google
-        </Button>
-        <Typography
-          variant="small"
-          color="gray"
-          className="!mt-4 text-center font-normal"
-        >
-          Already registered?{" "}
-          <Link href="/login" className="font-bold text-black">
-            Login here
-          </Link>
-        </Typography>
+        </div>
       </div>
-    </section>
+      <div className="bg-muted hidden lg:block">
+        <Image
+          src="/placeholder.svg"
+          alt="Image"
+          width="1920"
+          height="1080"
+          className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+        />
+      </div>
+    </div>
   );
 }
