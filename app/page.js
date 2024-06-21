@@ -1,7 +1,8 @@
+import Footer from "@/components/footer";
 import { HeroHighlightDemo } from "@/components/homepage-hero";
 
 import { MainHeader } from "@/components/navbar";
-import { LayoutGridDemo } from "@/components/test";
+import Vision from "@/components/vision";
 
 export default function HomePage() {
   return (
@@ -11,8 +12,11 @@ export default function HomePage() {
       </header>
       <main className="pt-4">
         <HeroHighlightDemo />
-        <LayoutGridDemo />
+        <Vision />
       </main>
+      <div>
+        <Footer />
+      </div>
     </>
   );
 }
