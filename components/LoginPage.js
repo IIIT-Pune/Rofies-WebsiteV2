@@ -88,7 +88,7 @@ export default function LoginPage() {
         </div>
       </div>
       <div className="relative flex min-h-full flex-1 items-center justify-center">
-        <img
+        <Image
           className="-z-1 absolute inset-x-0 -top-20 opacity-75"
           src={
             "https://pipe.com/_next/image?url=%2Fassets%2Fimg%2Fhero-left.png&w=384&q=75"
