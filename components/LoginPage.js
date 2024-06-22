@@ -13,7 +13,12 @@ export default function LoginPage() {
     <main className="flex min-h-screen w-full overflow-y-hidden">
       <div className="relative hidden min-h-screen flex-1 items-center justify-center bg-transparent lg:flex">
         <div className="relative z-10 w-full max-w-lg">
-          <Image src={logo} width={100} className="rounded-full bg-white" />
+          <Image
+            src={logo}
+            width={100}
+            className="rounded-full bg-white"
+            alt="logo"
+          />
           <div className="mt-10 space-y-3">
             <h3 className="font-geist text-3xl font-normal tracking-tighter text-white md:text-4xl lg:text-5xl">
               Start Growing Quickly
@@ -21,25 +26,40 @@ export default function LoginPage() {
 
             <Separator className="mr-auto h-px w-[100px] bg-white/20" />
             <div className="flex items-center -space-x-2 overflow-hidden">
-              <img
+              <Image
                 src="https://randomuser.me/api/portraits/women/79.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                alt="placeholder-1"
+                width={128}
+                height={128}
               />
-              <img
+              <Image
                 src="https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                alt="placeholder-2"
+                width={128}
+                height={128}
               />
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=a72ca28288878f8404a795f39642a46f"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                alt="placeholder-3"
+                width={128}
+                height={128}
               />
-              <img
+              <Image
                 src="https://randomuser.me/api/portraits/men/86.jpg"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                alt="placeholder-4"
+                width={128}
+                height={128}
               />
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1510227272981-87123e259b17?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=3759e09a5b9fbe53088b23c615b6312e"
                 className="h-10 w-10 rounded-full border-2 border-white"
+                alt="placeholder-5"
+                width={128}
+                height={128}
               />
               <p className="translate-x-5 text-sm font-medium text-gray-400">
                 Join 100+ users
@@ -56,7 +76,7 @@ export default function LoginPage() {
           }
         >
           <div className="absolute inset-0 w-full bg-transparent bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-15 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-          <img
+          <Image
             className="absolute inset-x-0 -top-20 opacity-25"
             src={
               "https://pipe.com/_next/image?url=%2Fassets%2Fimg%2Fhero-left.png&w=384&q=75"
@@ -79,11 +99,6 @@ export default function LoginPage() {
         />
         <div className="z-20 w-full max-w-md space-y-8 px-4 text-gray-600 sm:px-0 md:max-w-lg">
           <div className="relative">
-            <img
-              src="https://farmui.com/logo.svg"
-              width={100}
-              className="rounded-full lg:hidden"
-            />
             <div className="mt-5 space-y-2">
               <h3 className="text-3xl font-semibold tracking-tighter text-gray-200 sm:text-4xl">
                 Login

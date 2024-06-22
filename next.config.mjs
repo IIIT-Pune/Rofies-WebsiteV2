@@ -10,6 +10,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "randomuser.me",
+      },
+      {
+        protocol: "https",
+        hostname: "api.uifaces.co",
+      },
+      {
+        protocol: "https",
+        hostname: "pipe.com",
+      },
     ],
   },
 };

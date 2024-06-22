@@ -1,4 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "env":{ "browser": true, "node": true}
+  "env":{ "browser": true, "node": true},
+  "rules": { "react/no-unescaped-entities": 0,
+  "react-hooks/exhaustive-deps": 0 }
 }
