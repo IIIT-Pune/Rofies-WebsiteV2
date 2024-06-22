@@ -1,31 +1,55 @@
 "use client";
-import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "@/components/ui/homepage-hero";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-export function HeroSection() {
+export default function HeroSection() {
   return (
-    <HeroHighlight>
-      <motion.h1
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        animate={{
-          opacity: 1,
-          y: [20, -5, 0],
-        }}
-        transition={{
-          duration: 0.5,
-          ease: [0.4, 0.0, 0.2, 1],
-        }}
-        className="mx-auto max-w-4xl px-4 text-center text-2xl font-bold leading-relaxed text-neutral-700 dark:text-white md:text-4xl lg:text-5xl lg:leading-snug"
-      >
-        With insomnia, nothing&apos;s real. Everything is far away. Everything
-        is a{" "}
-        <Highlight className="text-black dark:text-white">
-          copy, of a copy, of a copy.
-        </Highlight>
-      </motion.h1>
-    </HeroHighlight>
+    <>
+      {/* Hero */}
+      <div className="relative overflow-hidden py-24 lg:py-32">
+        {/* Gradients */}
+        <div
+          aria-hidden="true"
+          className="absolute -top-96 start-1/2 flex -translate-x-1/2 transform"
+        >
+          <div className="h-[44rem] w-[25rem] -translate-x-[10rem] rotate-[-60deg] transform bg-gradient-to-r from-background/50 to-background blur-3xl" />
+          <div className="h-[50rem] w-[90rem] origin-top-left -translate-x-[15rem] -rotate-12 rounded-full bg-gradient-to-tl from-primary-foreground via-primary-foreground to-background blur-3xl" />
+        </div>
+        {/* End Gradients */}
+        <div className="relative z-10">
+          <div className="container py-10 lg:py-16">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="">Elevate Yourself</p>
+              {/* Title */}
+              <div className="mt-5 max-w-2xl">
+                <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+                  R.O.F.I.E.S
+                </h1>
+              </div>
+              {/* End Title */}
+              <div className="mt-5 max-w-3xl">
+                <p className="text-xl text-muted-foreground">
+                  Robotics Club of IIIT Pune - A group of passionate students
+                  who are interested in the field of robotics and automation.
+                </p>
+              </div>
+              {/* Buttons */}
+              <div className="mt-8 flex justify-center gap-3">
+                <Link href="/signup">
+                  <Button size={"lg"}>Get started</Button>
+                </Link>
+                <Link href="/about">
+                  <Button size={"lg"} variant={"outline"}>
+                    Learn more
+                  </Button>
+                </Link>
+              </div>
+              {/* End Buttons */}
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Hero */}
+    </>
   );
 }
