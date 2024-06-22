@@ -33,7 +33,7 @@ export function Globe() {
   };
 
   return (
-    <div className="relative flex h-screen w-full flex-row items-center justify-center bg-white py-20 dark:bg-black md:h-auto">
+    <div className="relative flex h-screen w-full flex-row items-center justify-center bg-white py-20 dark:bg-black">
       <div className="relative mx-auto h-full w-full max-w-7xl overflow-hidden px-4 md:h-[40rem]">
         <motion.div
           initial={{
