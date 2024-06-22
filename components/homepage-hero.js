@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { HeroHighlight, Highlight } from "@/components/ui/homepage-hero";
 
-export function HeroHighlightDemo() {
+export function HeroSection() {
   return (
     <HeroHighlight>
       <motion.h1

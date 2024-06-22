@@ -1,5 +1,4 @@
-import Footer from "@/components/footer";
-import { HeroHighlightDemo } from "@/components/homepage-hero";
+import { HeroSection } from "@/components/homepage-hero";
 
 import { MainHeader } from "@/components/navbar";
 import Vision from "@/components/vision";
@@ -11,12 +10,9 @@ export default function HomePage() {
         <MainHeader />
       </header>
       <main className="pt-4">
-        <HeroHighlightDemo />
+        <HeroSection />
         <Vision />
       </main>
-      <div>
-        <Footer />
-      </div>
     </>
   );
 }
