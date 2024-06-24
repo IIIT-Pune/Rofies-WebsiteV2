@@ -71,32 +71,16 @@ export default function LoginPage() {
           className="absolute inset-0 my-auto h-full"
           style={
             {
-              // background: "linear- gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)", filter: "blur(118px)"
+              // background:
+              //   "linear- gradient(152.92deg, rgba(192, 132, 252, 0.2) 4.54%, rgba(232, 121, 249, 0.26) 34.2%, rgba(192, 132, 252, 0.1) 77.55%)",
+              // filter: "blur(118px)",
             }
           }
         >
           <div className="absolute inset-0 w-full bg-transparent bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem] opacity-15 [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-          <Image
-            className="absolute inset-x-0 -top-20 opacity-25"
-            src={
-              "https://pipe.com/_next/image?url=%2Fassets%2Fimg%2Fhero-left.png&w=384&q=75"
-            }
-            width={1000}
-            height={1000}
-            alt="back bg"
-          />
         </div>
       </div>
       <div className="relative flex min-h-full flex-1 items-center justify-center">
-        <Image
-          className="-z-1 absolute inset-x-0 -top-20 opacity-75"
-          src={
-            "https://pipe.com/_next/image?url=%2Fassets%2Fimg%2Fhero-left.png&w=384&q=75"
-          }
-          width={1000}
-          height={1000}
-          alt="back bg"
-        />
         <div className="z-20 w-full max-w-md space-y-8 px-4 text-gray-600 sm:px-0 md:max-w-lg">
           <div className="relative">
             <div className="mt-5 space-y-2">
@@ -257,7 +241,7 @@ export default function LoginPage() {
                 className="mt-2 w-full rounded-lg border bg-transparent px-3 py-5 text-gray-500 shadow-sm outline-none focus:border-purple-600"
               />
             </div>
-            <button className="font-geist flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-br from-blue-400 to-blue-700 px-4 py-2 text-center text-lg tracking-tighter text-zinc-50 ring-2 ring-blue-500/50 ring-offset-2 ring-offset-zinc-950 transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-blue-500/70">
+            <button className="font-geist flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-br from-primary-foreground via-primary-foreground to-background px-4 py-2 text-center text-lg tracking-tighter text-zinc-50 ring-2 ring-blue-500/50 ring-offset-2 ring-offset-zinc-950 transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-purple-900">
               Create account
             </button>
           </form>
