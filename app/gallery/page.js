@@ -18,8 +18,9 @@ export default function Home() {
     <>
       <main className="mx-auto max-w-[1960px] p-4">
         <div className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4">
-          {images.map(({ public_id, format, blurDataUrl }) => (
+          {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Image
+              key={id}
               alt="Next.js Conf photo"
               className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
               style={{ transform: "translate3d(0, 0, 0)" }}
