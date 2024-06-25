@@ -1,8 +1,7 @@
-"use client";
 import React from "react";
 import { FloatingNav } from "./ui/navbar";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
-export function MainHeader() {
+export async function MainHeader({ isUserLoggedIn }) {
   const navItems = [
     {
       name: "Home",
@@ -24,7 +23,7 @@ export function MainHeader() {
   ];
   return (
     <div className="relative w-full">
-      <FloatingNav navItems={navItems} />
+      <FloatingNav navItems={navItems} isUserLoggedIn={isUserLoggedIn} />
     </div>
   );
 }
