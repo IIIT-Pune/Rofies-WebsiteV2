@@ -16,7 +16,7 @@ export default function LoginPage() {
           <Image
             src={logo}
             width={100}
-            className="rounded-full bg-white"
+            className="rounded-full bg-black dark:bg-white"
             alt="logo"
           />
           <div className="mt-10 space-y-3">

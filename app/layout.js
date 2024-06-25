@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/themeprovider";
+import { ModeToggle } from "@/components/modechange";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = {
@@ -14,7 +15,7 @@ export default function RootLayout({ children }) {
     <html>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "relative min-h-screen bg-background font-sans antialiased",
           inter.variable,
         )}
       >
@@ -24,6 +25,9 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
+          <div className="absolute right-0 top-0 z-50 m-4">
+            <ModeToggle />
+          </div>
           {children}
         </ThemeProvider>
       </body>
