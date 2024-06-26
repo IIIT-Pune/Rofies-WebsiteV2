@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <body
         className={cn(
           "relative min-h-screen bg-background font-sans antialiased",
