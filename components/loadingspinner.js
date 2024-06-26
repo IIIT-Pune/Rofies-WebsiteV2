@@ -3,7 +3,11 @@ import { dotPulse } from "ldrs";
 import { useTheme } from "next-themes";
 
 export default function GalleryLoading() {
-  miyagi.register();
+  try {
+    miyagi.register();
+  } catch (e) {
+    console.log(e);
+  }
   const { theme } = useTheme();
   return (
     <div className="flex h-screen items-center justify-center">

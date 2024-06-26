@@ -3,6 +3,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/themeprovider";
 import { ModeToggle } from "@/components/modechange";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata = {
@@ -29,6 +32,8 @@ export default function RootLayout({ children }) {
             <ModeToggle />
           </div>
           {children}
+          <SpeedInsights />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
