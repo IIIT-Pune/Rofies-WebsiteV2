@@ -1,27 +1,31 @@
-"use client";
-import { dotPulse } from "ldrs";
 import { useTheme } from "next-themes";
+import { FidgetSpinner } from "react-loader-spinner";
 
 export default function GalleryLoading() {
-  try {
-    miyagi.register();
-  } catch (e) {
-    console.log(e);
-  }
   const { theme } = useTheme();
   return (
     <div className="flex h-screen items-center justify-center">
       {theme === "dark" ? (
-        <l-miyagi size="100" stroke="3.5" speed="0.9" color="white" />
+        <FidgetSpinner
+          visible={true}
+          height="80"
+          width="80"
+          backgroundColor="white"
+          ariaLabel="fidget-spinner-loading"
+          wrapperStyle={{}}
+          wrapperClass="fidget-spinner-wrapper"
+        />
       ) : (
-        <l-miyagi size="100" stroke="3.5" speed="0.9" color="black" />
+        <FidgetSpinner
+          visible={true}
+          height="80"
+          width="80"
+          backgroundColor="black"
+          ariaLabel="fidget-spinner-loading"
+          wrapperStyle={{}}
+          wrapperClass="fidget-spinner-wrapper"
+        />
       )}
     </div>
   );
 }
-
-import { miyagi } from "ldrs";
-
-miyagi.register();
-
-// Default values shown
