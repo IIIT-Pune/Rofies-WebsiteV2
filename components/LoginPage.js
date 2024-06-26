@@ -7,6 +7,7 @@ import Link from "next/link";
 import logo from "@/assets/icons/logo.svg";
 import Image from "next/image";
 import { Login } from "@/lib/actions";
+import { Button } from "./ui/button";
 export default function LoginPage() {
   const [reset, setReset] = React.useState(false);
   return (
@@ -99,10 +100,11 @@ export default function LoginPage() {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-x-3">
-            <button
+            <Button
+              variant="outline"
               onMouseEnter={() => setReset(false)}
               onMouseLeave={() => setReset(true)}
-              className="group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
+              className="h-15 group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
             >
               <svg
                 className={cn(
@@ -137,12 +139,13 @@ export default function LoginPage() {
                   </clipPath>
                 </defs>
               </svg>
-            </button>
+            </Button>
 
-            <button
+            <Button
+              variant="outline"
               onMouseEnter={() => setReset(false)}
               onMouseLeave={() => setReset(true)}
-              className="group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
+              className="h-15 group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
             >
               <svg
                 className={cn(
@@ -158,11 +161,12 @@ export default function LoginPage() {
                   fill="#1DA1F2"
                 />
               </svg>
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="outline"
               onMouseEnter={() => setReset(false)}
               onMouseLeave={() => setReset(true)}
-              className="group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
+              className="h-15 group flex transform-gpu items-center justify-center rounded-lg border border-white/10 py-5 duration-150 hover:bg-transparent/50 active:bg-transparent/50 dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#8686f01f_inset]"
             >
               <svg
                 className={cn(
@@ -215,7 +219,7 @@ export default function LoginPage() {
                   </clipPath>
                 </defs>
               </svg>
-            </button>
+            </Button>
           </div>
           <Separator className="h-px bg-white/20" />
           <form action={Login} className="z-20 space-y-5">
@@ -241,9 +245,9 @@ export default function LoginPage() {
                 className="mt-2 w-full rounded-lg border bg-transparent px-3 py-5 text-gray-500 shadow-sm outline-none focus:border-purple-600"
               />
             </div>
-            <button className="font-geist flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-br from-primary-foreground via-primary-foreground to-background px-4 py-2 text-center text-lg tracking-tighter text-zinc-50 ring-2 ring-blue-500/50 ring-offset-2 ring-offset-zinc-950 transition-all hover:scale-[1.02] hover:ring-transparent active:scale-[0.98] active:ring-purple-900">
-              Create account
-            </button>
+            <Button className="flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-center text-lg tracking-tighter text-zinc-50 ring-offset-zinc-950 transition-all hover:scale-[1.02] active:scale-[0.98]">
+              Login to your account
+            </Button>
           </form>
         </div>
       </div>

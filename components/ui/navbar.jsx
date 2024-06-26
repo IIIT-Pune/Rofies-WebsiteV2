@@ -9,6 +9,8 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { LogoutDialog } from "../logoutdialog";
+import { Button } from "./button";
 export const FloatingNav = ({ navItems, isUserLoggedIn, className }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
@@ -62,14 +64,10 @@ export const FloatingNav = ({ navItems, isUserLoggedIn, className }) => {
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        {!isUserLoggedIn ? <button onClick={() => router.push('/signup')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+        {!isUserLoggedIn ? <Button variant="outline" onClick={() => router.push('/signup')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
-        </button> : 
-          <button onClick={() => router.push('/logout')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Logout</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
-        </button>
+        </Button> : <LogoutDialog />
         }
       </motion.div>
     </AnimatePresence>
