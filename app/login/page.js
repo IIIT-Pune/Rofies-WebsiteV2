@@ -1,5 +1,7 @@
-import LoginPage from "@/components/LoginPage";
+"use client";
+import React from "react";
+import LoginForm from "@/components/LoginForm";
 
-export default function Login() {
-  return <LoginPage />;
+export default function LoginPage() {
+  return <LoginForm />;
 }

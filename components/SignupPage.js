@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -5,7 +6,10 @@ import { Label } from "@/components/ui/label";
 import { Globe } from "@/components/globe";
 import { Signup } from "@/lib/actions";
 import { IconBrandGoogle } from "@tabler/icons-react";
+import { useFormState } from "react-dom";
+import { ErrorAlert } from "./ErrorAlert";
 export default function SignupPage() {
+  const [state, formAction] = useFormState(Signup, {});
   return (
     <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
       <div className="flex items-center justify-center py-12">
@@ -18,7 +22,7 @@ export default function SignupPage() {
           </div>
 
           <div className="grid gap-4">
-            <form action={Signup}>
+            <form action={formAction}>
               <div className="grid gap-2">
                 <Label htmlFor="email">Username</Label>
                 <Input
@@ -50,13 +54,13 @@ export default function SignupPage() {
               </div>
               <Button className="w-full">Signup</Button>
             </form>
+            {state.errors && <ErrorAlert errors={state.errors} />}
             <hr className="my-4 border-t border-black dark:border-white" />
             <Button variant="outline" className="w-full">
               <IconBrandGoogle size={20} />
               <span className="ml-2">Signup with Google</span>
             </Button>
           </div>
-
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
             <Link href="/login" className="underline">
