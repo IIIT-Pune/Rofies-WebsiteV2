@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { Login } from "@/lib/actions";
+import { ErrorAlert } from "./ErrorAlert";
 export default function LoginForm() {
   const [state, formAction] = useFormState(Login, {});
+  console.log(state.errors);
   return (
     <div className="relative flex min-h-[100dvh] items-center justify-center px-4">
       <div className="z-10 mx-auto w-full max-w-[500px] text-gray-700">
@@ -32,6 +34,7 @@ export default function LoginForm() {
               placeholder="m@example.com"
               required
               type="email"
+              name="email"
             />
           </div>
           <div>
@@ -45,6 +48,7 @@ export default function LoginForm() {
               id="password"
               placeholder="••••••••"
               required
+              name="password"
               type="password"
             />
           </div>
