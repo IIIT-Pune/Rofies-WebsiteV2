@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Globe } from "@/components/globe";
 import { Signup } from "@/lib/actions";
-import { IconBrandGoogle } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { useFormState } from "react-dom";
 import { ErrorAlert } from "./ErrorAlert";
 export default function SignupPage() {
@@ -60,6 +60,12 @@ export default function SignupPage() {
               <IconBrandGoogle size={20} />
               <span className="ml-2">Signup with Google</span>
             </Button>
+            <Link href={"/api/signup/github"}>
+              <Button variant="outline" className="w-full">
+                <IconBrandGithub size={20} />
+                <span className="ml-2">Signup with Github</span>
+              </Button>
+            </Link>
           </div>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}

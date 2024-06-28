@@ -8,7 +8,6 @@ import { Login } from "@/lib/actions";
 import { ErrorAlert } from "./ErrorAlert";
 export default function LoginForm() {
   const [state, formAction] = useFormState(Login, {});
-  console.log(state.errors);
   return (
     <div className="relative flex min-h-[100dvh] items-center justify-center px-4">
       <div className="z-10 mx-auto w-full max-w-[500px] text-gray-700">
