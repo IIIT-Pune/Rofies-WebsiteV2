@@ -31,7 +31,7 @@ export async function GET(request) {
       return new Response(null, {
         status: 302,
         headers: {
-          Location: "/",
+          Location: process.env.BASE_URL,
         },
       });
     }
@@ -52,7 +52,7 @@ export async function GET(request) {
     return new Response(null, {
       status: 302,
       headers: {
-        Location: "/",
+        Location: process.env.BASE_URL,
       },
     });
   } catch (e) {
