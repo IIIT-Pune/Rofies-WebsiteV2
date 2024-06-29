@@ -27,7 +27,8 @@ export async function GET(request) {
     const githubUser = await githubUserResponse.json();
     const existingUser = await getUserbyGithubId(githubUser.id);
     if (existingUser) {
-      await createAuthSession(existingUser._id);
+      console.log(existingUser._id.toString());
+      await createAuthSession(existingUser._id.toString());
       return new Response(null, {
         status: 302,
         headers: {
