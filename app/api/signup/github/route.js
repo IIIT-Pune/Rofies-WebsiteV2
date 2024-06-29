@@ -1,11 +1,9 @@
-import { initializeGitHub } from "@/lib/auth";
+import { github } from "@/lib/auth";
 import { generateState } from "arctic";
 import { cookies } from "next/headers";
-import { NextResponse } from "next/server";
 
 export async function GET() {
   const state = generateState();
-  const github = await initializeGitHub();
   const url = await github.createAuthorizationURL(state);
 
   cookies().set("github_oauth_state", state, {
@@ -16,5 +14,5 @@ export async function GET() {
     sameSite: "lax",
   });
 
-  return NextResponse.redirect(url);
+  return Response.redirect(url);
 }

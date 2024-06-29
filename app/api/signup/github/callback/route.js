@@ -1,11 +1,10 @@
-import { createAuthSession, initializeGitHub } from "@/lib/auth";
+import { createAuthSession, github } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { OAuth2RequestError } from "arctic";
 import { getUserbyGithubId, saveUser } from "@/lib/user";
-import { generateIdFromEntropySize } from "lucia";
+import { generateId } from "lucia";
 
 export async function GET(request) {
-  const github = await initializeGitHub();
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
@@ -24,19 +23,16 @@ export async function GET(request) {
       },
     });
     const githubUser = await githubUserResponse.json();
-    // Replace this with your own DB client.
     const existingUser = await getUserbyGithubId(githubUser.id);
     if (existingUser) {
       await createAuthSession(existingUser._id);
       return new Response(null, {
         status: 302,
         headers: {
-          Location: process.env.BASE_URL,
+          Location: "/",
         },
       });
     }
-    const userId = generateIdFromEntropySize(10);
-    // Replace this with your own DB client.
     try {
       await saveUser({
         github_id: githubUser.id,
@@ -47,17 +43,20 @@ export async function GET(request) {
     } catch (error) {
       console.log(error);
     }
-
-    await createAuthSession(userId);
+    const userId = generateId(15);
+    createAuthSession(userId);
     return new Response(null, {
       status: 302,
       headers: {
-        Location: process.env.BASE_URL,
+        Location: "/",
       },
     });
   } catch (e) {
     // the specific error message depends on the provider
-    if (e instanceof OAuth2RequestError) {
+    if (
+      e instanceof OAuth2RequestError &&
+      e.message === "bad_verification_code"
+    ) {
       // invalid code
       return new Response(null, {
         status: 400,
