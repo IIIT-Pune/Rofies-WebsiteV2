@@ -3,8 +3,8 @@ import { FloatingNav } from "./ui/navbar";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import { verifyAuthSession } from "@/lib/auth";
 export async function MainHeader() {
-  const result = await verifyAuthSession();
-  const isLoggedIn = result.user ? true : false;
+  // const result = await verifyAuthSession();
+  // const isLoggedIn = result.user ? true : false;
   const navItems = [
     {
       name: "Events",
@@ -26,7 +26,7 @@ export async function MainHeader() {
   ];
   return (
     <div className="relative w-full">
-      <FloatingNav navItems={navItems} isUserLoggedIn={isLoggedIn} />
+      <FloatingNav navItems={navItems} />
     </div>
   );
 }
