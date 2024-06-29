@@ -1,3 +1,4 @@
+"use server";
 import { createAuthSession, github } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { OAuth2RequestError } from "arctic";
@@ -20,6 +21,7 @@ export async function GET(request) {
     const githubUserResponse = await fetch("https://api.github.com/user", {
       headers: {
         Authorization: `Bearer ${tokens.accessToken}`,
+        Accept: "application/json",
       },
     });
     const githubUser = await githubUserResponse.json();

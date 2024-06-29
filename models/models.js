@@ -3,9 +3,9 @@ import UniqueValidator from "mongoose-unique-validator";
 
 const userSchema = new mongoose.Schema({
   user_name: { type: String },
-  email_id: { type: String, unique: true },
+  email_id: { type: String },
   hashed_password: { type: String },
-  github_id: { type: String, unique: true },
+  github_id: { type: String },
 });
 const sessionSchema = new mongoose.Schema({
   _id: {
