@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useFormState } from "react-dom";
 import { Login } from "@/lib/actions";
 import { ErrorAlert } from "./ErrorAlert";
+import { Button } from "./ui/button";
 export default function LoginForm() {
   const [state, formAction] = useFormState(Login, {});
   return (
@@ -51,9 +52,9 @@ export default function LoginForm() {
               type="password"
             />
           </div>
-          <button className="font-geist relative mx-auto h-12 w-full overflow-hidden rounded bg-neutral-950 px-5 py-2.5 text-center tracking-tighter text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2">
+          <Button className="font-geist relative mx-auto h-12 w-full overflow-hidden rounded bg-neutral-950 px-5 py-2.5 text-center tracking-tighter text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2">
             <span className="relative">Sign In</span>
-          </button>
+          </Button>
         </form>
         <div className="mt-6 text-center text-sm">
           <p className="text-gray-500 dark:text-gray-400">

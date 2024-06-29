@@ -1,15 +1,16 @@
-"use server";
 import { createAuthSession, github } from "@/lib/auth";
-import { cookies } from "next/headers";
-import { OAuth2RequestError } from "arctic";
 import { getUserbyGithubId, saveUser } from "@/lib/user";
-import { generateId } from "lucia";
+import { OAuth2RequestError } from "arctic";
+import { cookies } from "next/headers";
 
 export async function GET(request) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
+  let redirection = false;
+  console.log(code, state);
   const storedState = cookies().get("github_oauth_state")?.value ?? null;
+
   if (!code || !state || !storedState || state !== storedState) {
     return new Response(null, {
       status: 400,
@@ -21,14 +22,37 @@ export async function GET(request) {
     const githubUserResponse = await fetch("https://api.github.com/user", {
       headers: {
         Authorization: `Bearer ${tokens.accessToken}`,
-        Accept: "application/json",
       },
     });
     const githubUser = await githubUserResponse.json();
     const existingUser = await getUserbyGithubId(githubUser.id);
     if (existingUser) {
-      console.log(existingUser._id.toString());
-      await createAuthSession(existingUser._id.toString());
+      await createAuthSession(existingUser._id);
+      redirection = true;
+    } else {
+      const result = await saveUser({
+        username: githubUser.login,
+        email: githubUser.email,
+        githubId: githubUser.id,
+        hashedPassword: null,
+      });
+      console.log(result);
+      // await createAuthSession(result._id);
+      redirection = true;
+    }
+  } catch (e) {
+    if (
+      e instanceof OAuth2RequestError &&
+      e.message === "bad_verification_code"
+    ) {
+      console.log("bad_verification_code");
+    }
+    console.log(e);
+    return new Response(null, {
+      status: 400,
+    });
+  } finally {
+    if (redirection) {
       return new Response(null, {
         status: 302,
         headers: {
@@ -36,37 +60,5 @@ export async function GET(request) {
         },
       });
     }
-    try {
-      await saveUser({
-        github_id: githubUser.id,
-        username: githubUser.login,
-        email: githubUser.email,
-        hashedPassword: null,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-    const userId = generateId(15);
-    createAuthSession(userId);
-    return new Response(null, {
-      status: 302,
-      headers: {
-        Location: "/",
-      },
-    });
-  } catch (e) {
-    // the specific error message depends on the provider
-    if (
-      e instanceof OAuth2RequestError &&
-      e.message === "bad_verification_code"
-    ) {
-      // invalid code
-      return new Response(null, {
-        status: 400,
-      });
-    }
-    return new Response(null, {
-      status: 500,
-    });
   }
 }

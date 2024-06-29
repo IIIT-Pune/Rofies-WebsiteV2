@@ -1,16 +1,10 @@
 import HeroSection from "@/components/homepage-hero";
-
-import { MainHeader } from "@/components/navbar";
 import Vision from "@/components/vision";
-
 export default async function HomePage() {
   return (
     <>
-      <MainHeader />
-      <main>
-        <HeroSection />
-        <Vision />
-      </main>
+      <HeroSection />
+      <Vision />
     </>
   );
 }

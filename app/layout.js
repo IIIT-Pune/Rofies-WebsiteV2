@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/themeprovider";
 import { ModeToggle } from "@/components/modechange";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { MainHeader } from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
+          <MainHeader />
           <div className="absolute right-0 top-0 z-50 m-4">
             <ModeToggle />
           </div>
