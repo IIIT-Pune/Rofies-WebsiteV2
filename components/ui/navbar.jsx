@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { LogoutDialog } from "../logoutdialog";
 import { Button } from "./button";
-export const FloatingNav = ({ navItems, isUserLoggedIn, className }) => {
+export const FloatingNav = ({ navItems, className, isUserLoggedIn }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
   const [visible, setVisible] = useState(false);

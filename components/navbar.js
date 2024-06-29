@@ -2,9 +2,14 @@ import React from "react";
 import { FloatingNav } from "./ui/navbar";
 import { IconHome, IconMessage, IconUser } from "@tabler/icons-react";
 import { verifyAuthSession } from "@/lib/auth";
+async function userVerification() {
+  "use server";
+  const result = await verifyAuthSession();
+  const isLoggedIn = result.user ? true : false;
+  return isLoggedIn;
+}
 export async function MainHeader() {
-  // const result = await verifyAuthSession();
-  // const isLoggedIn = result.user ? true : false;
+  const isUserLoggedIn = await userVerification();
   const navItems = [
     {
       name: "Events",
@@ -26,7 +31,7 @@ export async function MainHeader() {
   ];
   return (
     <div className="relative w-full">
-      <FloatingNav navItems={navItems} />
+      <FloatingNav navItems={navItems} isUserLoggedIn={isUserLoggedIn} />
     </div>
   );
 }
