@@ -38,7 +38,7 @@ export async function GET(request) {
     const userId = generateIdFromEntropySize(10);
     // Replace this with your own DB client.
     try {
-      const result = await saveUser({
+      await saveUser({
         github_id: githubUser.id,
         username: githubUser.login,
         email: githubUser.email,
