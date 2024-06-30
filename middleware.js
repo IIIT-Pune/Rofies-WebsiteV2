@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export async function middleware(request) {
@@ -13,7 +14,14 @@ export async function middleware(request) {
     return NextResponse.redirect(new URL("/signup", request.url));
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  cookies().set("x-auth-status", "true", {
+    httpOnly: false,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+    expires: new Date(Date.now() + 1000 * 60 * 60),
+  });
+  return response;
 }
 export const config = {
   matcher: [

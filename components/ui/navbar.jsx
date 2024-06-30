@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { LogoutDialog } from "../logoutdialog";
 import { Button } from "./button";
-export const FloatingNav = ({ navItems, className, isUserLoggedIn }) => {
+export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
   const [visible, setVisible] = useState(false);
@@ -60,7 +60,7 @@ export const FloatingNav = ({ navItems, className, isUserLoggedIn }) => {
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
-        {!isUserLoggedIn ? <Button variant="outline" onClick={() => router.push('/signup')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
+        {!isAuthenticated ? <Button variant="outline" onClick={() => router.push('/signup')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
         </Button> : <LogoutDialog />

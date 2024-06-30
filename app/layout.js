@@ -6,6 +6,7 @@ import { ModeToggle } from "@/components/modechange";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { MainHeader } from "@/components/navbar";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -14,8 +15,9 @@ export const metadata = {
   description: "Rofies - Robotics Club of IIIT Pune",
 };
 
-export default function RootLayout({ children, params }) {
-  // console.log(params);
+export default function RootLayout({ children }) {
+  const authCookie = cookies().get("auth_session");
+  const isAuthenticated = authCookie ? true : false;
   return (
     <html suppressHydrationWarning>
       <body
@@ -30,7 +32,7 @@ export default function RootLayout({ children, params }) {
           enableSystem
           disableTransitionOnChange
         >
-          <MainHeader />
+          <MainHeader isUserAuthenticated={isAuthenticated} />
           <div className="absolute right-0 top-0 z-50 m-4">
             <ModeToggle />
           </div>
