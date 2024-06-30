@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
 export async function middleware(request) {
@@ -15,7 +14,7 @@ export async function middleware(request) {
   }
 
   const response = NextResponse.next();
-  cookies().set("x-auth-status", "true", {
+  response.cookies.set("x-auth-status", "true", {
     httpOnly: false,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
