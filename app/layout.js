@@ -14,7 +14,8 @@ export const metadata = {
   description: "Rofies - Robotics Club of IIIT Pune",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, params }) {
+  // console.log(params);
   return (
     <html suppressHydrationWarning>
       <body

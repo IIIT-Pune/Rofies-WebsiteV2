@@ -8,7 +8,6 @@ export async function GET(request) {
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");
   let redirection = false;
-  console.log(code, state);
   const storedState = cookies().get("github_oauth_state")?.value ?? null;
 
   if (!code || !state || !storedState || state !== storedState) {
@@ -37,7 +36,7 @@ export async function GET(request) {
         hashedPassword: null,
       });
       console.log(result);
-      // await createAuthSession(result._id);
+      await createAuthSession(result._id);
       redirection = true;
     }
   } catch (e) {
