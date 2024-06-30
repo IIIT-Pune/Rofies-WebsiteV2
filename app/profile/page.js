@@ -1,10 +1,11 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import { destroyAuthSession } from "@/lib/auth";
+import { Logout } from "@/lib/actions";
 
-export default async function LogoutPage() {
+export default function LogoutPage() {
   return (
-    <form action={destroyAuthSession}>
-      <Button type="submit">Logout</Button>
+    <form action={Logout}>
+      <Button>Logout</Button>
     </form>
   );
 }
