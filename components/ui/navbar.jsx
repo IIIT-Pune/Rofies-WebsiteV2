@@ -64,7 +64,7 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
         </Button> :
-        <Link href={"/api/logout"}> 
+        <Link href={"/logout"}> 
         <UserAvatar />
         </Link>
         }

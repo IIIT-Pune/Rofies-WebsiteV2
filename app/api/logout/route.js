@@ -1,16 +1,24 @@
 import { Logout } from "@/lib/actions";
-import { revalidatePath } from "next/cache";
-import { NextResponse } from "next/server";
+import { destroyAuthSession } from "@/lib/auth";
 
 export async function GET(request) {
-  const result = await Logout();
-  if (result.error) {
-    return new Response(result.error, {
+  const res = await Logout();
+  if (res.error) {
+    return new Response(JSON.stringify({ error: res.error }), {
       status: 400,
+      headers: { "Content-Type": "application/json" },
     });
   }
-  if (result.success) {
-    revalidatePath("/");
-    return NextResponse.redirect(new URL("/", request.url));
+  if (res.success) {
+    // Set a header to instruct the client to redirect. This is just an example, actual implementation may vary.
+    return new Response(
+      JSON.stringify({ success: true, message: "Logout successful" }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
   }
 }
