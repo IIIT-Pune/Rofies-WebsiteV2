@@ -10,7 +10,7 @@ export async function middleware(request) {
 
   let authCookie = request.cookies.get("auth_session");
   if (!authCookie) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL("/signup", request.url));
   }
 
   return NextResponse.next();
@@ -23,7 +23,10 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
+     * - login
+     * - signup
+     * Also excludes the root path (/)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|login|signup).*)",
+    `/((?!api|_next/static|_next/image|favicon.ico|login|signup|$).*)`,
   ],
 };
