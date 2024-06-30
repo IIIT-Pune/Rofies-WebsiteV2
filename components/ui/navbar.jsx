@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   motion,
   AnimatePresence,
@@ -9,8 +9,8 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { LogoutDialog } from "../logoutdialog";
 import { Button } from "./button";
+import { UserAvatar } from "../useravatar";
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
@@ -63,8 +63,12 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
         {!isAuthenticated ? <Button variant="outline" onClick={() => router.push('/signup')} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
-        </Button> : <LogoutDialog />
+        </Button> :
+        <Link href={"/profile"}> 
+        <UserAvatar />
+        </Link>
         }
+        
       </motion.div>
     </AnimatePresence>
     </>
