@@ -14,12 +14,6 @@ export async function middleware(request) {
   }
 
   const response = NextResponse.next();
-  response.cookies.set("x-auth-status", "true", {
-    httpOnly: false,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    expires: new Date(Date.now() + 1000 * 60 * 60),
-  });
   return response;
 }
 export const config = {
