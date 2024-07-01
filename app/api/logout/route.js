@@ -1,5 +1,6 @@
 import { Logout } from "@/lib/actions";
-import { destroyAuthSession } from "@/lib/auth";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request) {
   const res = await Logout();

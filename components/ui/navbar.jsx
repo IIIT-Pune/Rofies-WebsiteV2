@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "./button";
 import { UserAvatar } from "../useravatar";
+import UserDropdown from "../UserDropdown";
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
@@ -64,10 +65,7 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
           <span>Get Started</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-primary-foreground to-transparent h-px" />
         </Button> :
-        <Link href={"/logout"}> 
-        <UserAvatar />
-        </Link>
-        }
+        <UserDropdown />}
         
       </motion.div>
     </AnimatePresence>
