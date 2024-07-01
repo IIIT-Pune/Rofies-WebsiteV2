@@ -9,7 +9,7 @@ export default function ProfilePage() {
       if (result.success) {
         window.location.href = "/";
       } else {
-        console.error(result.error || "Logout failed");
+        console.error(result.message || "Logout failed");
       }
     } catch (error) {
       console.error(error);
