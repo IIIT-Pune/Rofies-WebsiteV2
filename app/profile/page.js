@@ -7,7 +7,6 @@ export default function ProfilePage() {
       const response = await fetch("/api/logout");
       const result = await response.json();
       if (result.success) {
-        console.log("Logout successful");
         window.location.href = "/";
       } else {
         console.error(result.error || "Logout failed");

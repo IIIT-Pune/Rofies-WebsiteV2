@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Globe } from "@/components/globe";
-import { GithubAuth, Signup } from "@/lib/actions";
+import { GithubAuth, GoogleAuth, Signup } from "@/lib/actions";
 import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { useFormState } from "react-dom";
 import { ErrorAlert } from "./ErrorAlert";
@@ -56,10 +56,12 @@ export default function SignupForm() {
             </form>
             {state.errors && <ErrorAlert errors={state.errors} />}
             <hr className="my-4 border-t border-black dark:border-white" />
-            <Button variant="outline" className="w-full">
-              <IconBrandGoogle size={20} />
-              <span className="ml-2">Signup with Google</span>
-            </Button>
+            <form action={GoogleAuth}>
+              <Button variant="outline" className="w-full">
+                <IconBrandGoogle size={20} />
+                <span className="ml-2">Signup with Google</span>
+              </Button>
+            </form>
             <form action={GithubAuth}>
               <Button variant="outline" className="w-full">
                 <IconBrandGithub size={20} />

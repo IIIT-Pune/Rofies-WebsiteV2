@@ -35,7 +35,6 @@ export async function GET(request) {
         githubId: githubUser.id,
         hashedPassword: null,
       });
-      console.log(result);
       await createAuthSession(result._id);
       redirection = true;
     }
