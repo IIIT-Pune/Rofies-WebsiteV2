@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "./button";
-import { UserAvatar } from "../useravatar";
 import UserDropdown from "../UserDropdown";
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
   const { scrollYProgress } = useScroll();
@@ -21,11 +20,15 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
     if (typeof current === "number") {
       let direction = current - scrollYProgress.getPrevious();
 
+      if (scrollYProgress.get() < 0.05) {
+        setVisible(false);
+      } else {
         if (direction < 0) {
           setVisible(true);
         } else {
           setVisible(false);
         }
+      }
     }
   });
 
@@ -57,7 +60,6 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
               "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}
