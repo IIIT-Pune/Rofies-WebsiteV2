@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { Suspense } from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3dcard";
+import Loading from "@/app/gallery/loading";
 
 export function ThreeDCard({ id, public_id, format, blurDataUrl }) {
   return (
