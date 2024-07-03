@@ -23,15 +23,13 @@ export default function Home() {
       {isLoading && <GalleryLoading />}
       <div className="grid gap-x-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {images.map(({ id, public_id, format, blurDataUrl }) => (
-          <Suspense key={id} fallback={<Loading />}>
-            <ThreeDCard
-              key={id}
-              id={id}
-              public_id={public_id}
-              format={format}
-              blurDataUrl={blurDataUrl}
-            />
-          </Suspense>
+          <ThreeDCard
+            key={id}
+            id={id}
+            public_id={public_id}
+            format={format}
+            blurDataUrl={blurDataUrl}
+          />
         ))}
       </div>
     </>
