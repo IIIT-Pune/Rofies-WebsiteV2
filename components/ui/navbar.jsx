@@ -11,6 +11,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "./button";
 import UserDropdown from "../UserDropdown";
+import ItemTooltip from "../ItemTooltip";
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
@@ -60,6 +61,7 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
               "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500"
             )}
           >
+            <ItemTooltip className={"block sm:hidden"} icon={navItem.icon} name={navItem.name} />
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
         ))}

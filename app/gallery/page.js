@@ -1,9 +1,8 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getImages } from "@/lib/galleryUtils/fetchImages";
 import { ThreeDCard } from "@/components/3dcard";
 import GalleryLoading from "@/components/loadingspinner";
-import Loading from "./loading";
 
 export default function Home() {
   const [images, setImages] = useState([]);
