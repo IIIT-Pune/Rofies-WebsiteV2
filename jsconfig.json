@@ -3,6 +3,7 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "jsx": "react"
+    "jsx": "react",
+    "checkJs": true
   }
 }
