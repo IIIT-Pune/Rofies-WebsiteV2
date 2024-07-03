@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { Suspense } from "react";
+import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3dcard";
 
 export function ThreeDCard({ id, public_id, format, blurDataUrl }) {

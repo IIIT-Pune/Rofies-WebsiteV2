@@ -19,7 +19,9 @@ export default function ProfilePage() {
     <>
       <h1 className="text-orange-400">Profile Page</h1>
       <form onSubmit={handleLogoutSubmitHandler}>
-        <Button type="submit">Logout</Button>
+        <Button variant="destructive" type="submit">
+          Logout
+        </Button>
       </form>
     </>
   );
