@@ -8,9 +8,9 @@ export async function GET(request, response) {
   ) {
     return response.status(401).end("Unauthorized");
   }
-  const FiveDaysAgo = new Date(new Date().setDate(new Date().getDate() - 5));
-  const deletedCount = await deleteExpiredSessions(FiveDaysAgo);
-  console.log(deletedCount, "Logs since", FiveDaysAgo, "have been cleared");
+  const OneDayAgo = new Date(new Date().setDate(new Date().getDate() - 1));
+  const deletedCount = await deleteExpiredSessions(OneDayAgo);
+  console.log(deletedCount, "Logs since", OneDayAgo, "have been cleared");
   await lucia.deleteExpiredSessions();
 
   return NextResponse.json({ ok: true });

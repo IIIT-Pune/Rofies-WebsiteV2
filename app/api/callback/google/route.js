@@ -15,7 +15,7 @@ export async function GET(request) {
     state !== storedState ||
     storedCodeVerifier === null
   ) {
-    return new Response(null, {
+    return new Response("Data Error", {
       status: 400,
     });
   }
