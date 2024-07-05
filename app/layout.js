@@ -19,10 +19,10 @@ export default function RootLayout({ children }) {
   const authCookie = cookies().get("auth_session");
   const isAuthenticated = authCookie ? true : false;
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning className="h-full">
       <body
         className={cn(
-          "relative min-h-screen bg-background font-sans antialiased",
+          "relative h-full min-h-screen bg-background font-sans antialiased",
           inter.variable,
         )}
       >

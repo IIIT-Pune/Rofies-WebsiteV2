@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import SubmitButton from "@/components/SubmitButton";
 export default function ProfilePage() {
   const handleLogoutSubmitHandler = async (e) => {
     try {
@@ -19,9 +19,11 @@ export default function ProfilePage() {
     <>
       <h1 className="text-orange-400">Profile Page</h1>
       <form onSubmit={handleLogoutSubmitHandler}>
-        <Button variant="destructive" type="submit">
-          Logout
-        </Button>
+        <SubmitButton
+          label={"Logout"}
+          variant={"destructive"}
+          type={"submit"}
+        />
       </form>
     </>
   );
