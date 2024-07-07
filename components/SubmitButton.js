@@ -11,7 +11,6 @@ export default function SubmitButton({
   type,
 }) {
   const { pending } = useFormStatus();
-  console.log(pending);
   return (
     <Button
       className={className}
