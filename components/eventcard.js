@@ -17,7 +17,7 @@ const CardBody = ({ className = "", content }) => (
   </div>
 );
 //======================================
-export default function EventCard({ content }) {
+export default function EventCard({ cardContent }) {
   return (
     <div className="overflow-hidden rounded-xl border bg-zinc-50 p-2 pb-3 dark:bg-zinc-950">
       <div className="relative aspect-video">
@@ -32,11 +32,11 @@ export default function EventCard({ content }) {
       </div>
       <CardBody
         className="relative mb-2 text-gray-800 dark:text-gray-200"
-        content={content}
+        content={cardContent}
       />
       <div className="px-2">
         <Button className="w-full rounded-lg" asChild>
-          <Link href="/docs/cards-with-image-bg">Learn more</Link>
+          <Link href={`/events/${cardContent._id}`}>Learn more</Link>
         </Button>
       </div>
     </div>

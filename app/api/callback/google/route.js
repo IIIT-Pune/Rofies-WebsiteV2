@@ -67,7 +67,6 @@ export async function GET(request) {
         status: code,
       });
     }
-    console.log(e);
     return new Response(`othercause are ${e}`, {
       status: 500,
     });

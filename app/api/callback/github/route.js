@@ -43,9 +43,10 @@ export async function GET(request) {
       e instanceof OAuth2RequestError &&
       e.message === "bad_verification_code"
     ) {
-      console.log("bad_verification_code");
+      return new Response("bad verification code", {
+        status: 400,
+      });
     }
-    console.log(e);
     return new Response(null, {
       status: 400,
     });

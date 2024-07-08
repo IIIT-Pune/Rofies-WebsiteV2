@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import UniqueValidator from "mongoose-unique-validator";
 
 const userSchema = new mongoose.Schema({
   user_name: { type: String },
@@ -22,7 +21,18 @@ const sessionSchema = new mongoose.Schema({
     required: true,
   },
 });
-userSchema.plugin(UniqueValidator);
+
+const eventSchema = new mongoose.Schema({
+  title: { type: String },
+  description: { type: String },
+  date: { type: Date },
+  image_link: { type: String },
+  location: { type: String },
+  registration_link: { type: String },
+});
+
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Session =
   mongoose.models.Session || mongoose.model("Session", sessionSchema);
+export const Event =
+  mongoose.models.Event || mongoose.model("Event", eventSchema);
