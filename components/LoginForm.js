@@ -51,7 +51,7 @@ export default function LoginForm() {
           className={
             "font-geist relative mx-auto h-12 w-full overflow-hidden rounded bg-neutral-950 px-5 py-2.5 text-center tracking-tighter text-white transition-all duration-300 hover:bg-neutral-800 hover:ring-2 hover:ring-neutral-800 hover:ring-offset-2"
           }
-          label={"Sign In"}
+          label={"Dive In!"}
         />
       </form>
     </>
