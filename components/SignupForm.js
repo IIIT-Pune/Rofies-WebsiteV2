@@ -44,7 +44,7 @@ export default function SignupForm() {
       </form>
       {state.errors && <ErrorAlert errors={state.errors} />}
       <div className="mt-4 text-center text-sm">
-        Don&apos;t have an account?{" "}
+        Already have an account?{" "}
         <Link href="/login" className="underline">
           Login
         </Link>

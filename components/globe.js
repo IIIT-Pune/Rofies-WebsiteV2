@@ -52,7 +52,7 @@ export function Globe() {
             Join Us. Be a part of something bigger
           </h2>
           <p className="mx-auto mt-2 max-w-md text-center text-base font-normal text-neutral-700 dark:text-neutral-200 md:text-lg">
-            Be a part of our global community and connect with like-minded.
+            Be a part of our global community and connect with like-minded people.
           </p>
         </motion.div>
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-40 h-40 w-full select-none" />
