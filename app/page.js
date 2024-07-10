@@ -1,10 +1,8 @@
-import HeroSection from "@/components/homepage-hero";
-import Vision from "@/components/vision";
+import HomePageHeroSection from "@/components/homepage-hero";
 export default async function HomePage() {
   return (
     <>
-      <HeroSection />
-      <Vision />
+      <HomePageHeroSection />
     </>
   );
 }
