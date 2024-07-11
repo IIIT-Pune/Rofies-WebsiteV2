@@ -34,9 +34,6 @@ export default function RootLayout({ children }) {
         >
           <CanvasCursor />
           <MainHeader isUserAuthenticated={verifyAuth()} />
-          <div className="absolute right-0 top-0 z-50 m-4">
-            <ModeToggle />
-          </div>
           {children}
           <SpeedInsights />
           <Analytics />
