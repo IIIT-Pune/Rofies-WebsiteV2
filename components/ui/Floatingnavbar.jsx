@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "./button";
 import UserDropdown from "../UserDropdown";
 import ItemTooltip from "../ItemTooltip";
@@ -16,6 +16,7 @@ import FixedNavbar from "./FixedNavbar";
 import { ModeToggle } from "../modechange";
 
 export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
+  const path = usePathname();
   const { scrollYProgress } = useScroll();
   const router = useRouter();
   const [visible, setVisible] = useState(true);
@@ -41,7 +42,7 @@ export const FloatingNav = ({ navItems, className, isAuthenticated }) => {
 
   return (
     <>
-      {isAtTop && (
+      {isAtTop && path === "/" && (
         <FixedNavbar isAuthenticated={isAuthenticated} navItems={navItems} />
       )}
       <AnimatePresence mode="wait">
