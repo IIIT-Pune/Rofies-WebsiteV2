@@ -1,4 +1,4 @@
-import { createAuthSession, github } from "@/lib/auth";
+import { createUserAuthSession, github } from "@/lib/auth";
 import { getUserbyGithubId, saveUser } from "@/lib/user";
 import { OAuth2RequestError } from "arctic";
 import { cookies } from "next/headers";
@@ -26,7 +26,7 @@ export async function GET(request) {
     const githubUser = await githubUserResponse.json();
     const existingUser = await getUserbyGithubId(githubUser.id);
     if (existingUser) {
-      await createAuthSession(existingUser._id);
+      await createUserAuthSession(existingUser._id);
       redirection = true;
     } else {
       const result = await saveUser({
@@ -35,7 +35,7 @@ export async function GET(request) {
         githubId: githubUser.id,
         hashedPassword: null,
       });
-      await createAuthSession(result._id);
+      await createUserAuthSession(result._id);
       redirection = true;
     }
   } catch (e) {
