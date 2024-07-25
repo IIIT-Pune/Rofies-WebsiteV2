@@ -50,6 +50,7 @@ export async function GET(request) {
         googleId: user.sub,
         hashedPassword: null,
         githubId: null,
+        role: "user",
       });
       await createUserAuthSession(result._id);
       return new Response("New user", {

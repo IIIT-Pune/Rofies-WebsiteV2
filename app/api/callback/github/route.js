@@ -34,6 +34,7 @@ export async function GET(request) {
         email: githubUser.email,
         githubId: githubUser.id,
         hashedPassword: null,
+        role: "user",
       });
       await createUserAuthSession(result._id);
       redirection = true;
